@@ -1,7 +1,7 @@
 public class Admin{
-  private String fullname, id, accessLevel, email, password, phoneNo;
+  private String fullname, id, email, password, phoneNo;
 
-  public Admin(String fullname, String id, String accessLevel, String email, String password, String phoneNo){
+  public Admin(String fullname, String id, String email, String password, String phoneNo){
     this.fullname=fullname;
     this.id=id;
     this.accessLevel=accessLevel;
@@ -16,10 +16,6 @@ public class Admin{
   
   public String getId(){
     return id;
-  }
-
-  public String getAccessLevel(){
-    return accessLevel;
   }
 
   public String getEmail(){
@@ -42,10 +38,6 @@ public class Admin{
     this.id=id;
   }
 
-  public void setAccessLevel(String accessLevel){
-    this.accessLevel=accessLevel;
-  }
-
   public void setEmail(String email){
     this.email=email;
   }
@@ -61,7 +53,6 @@ public class Admin{
   public String toString(){
     return "Admin{Fullname= "+fullname
     + "\nNationalID= "+ id
-    +"\nAccessLevel= "+ accessLevel
     +"\nEmail= "+email
     +"\nPassword= "+password
     +"\nPhoneNo= "+phoneNo
