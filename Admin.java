@@ -1,4 +1,5 @@
 public class Admin{
+  private final Object accessLevel;
   private String fullname, id, email, password, phoneNo;
 
   public Admin(String fullname, String id, String email, String password, String phoneNo){
