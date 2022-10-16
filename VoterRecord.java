@@ -1,5 +1,5 @@
 public record VoterRecord(int nationalID, String fullName,String email, String password, String mobileNumber) {
-    public  boolean signUp(){
+    public boolean signUp(){
         return false;
     }
 

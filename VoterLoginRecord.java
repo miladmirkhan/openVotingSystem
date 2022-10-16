@@ -7,15 +7,13 @@ public record VoterLoginRecord(int nationalId, String email, String password) {
         this(nationalId, null, null);
     }
 
-    public boolean login(){
+    public void login(){
         if (nationalId==0){
-
+            // login with national id
         }else{
-
+            // login with email and password
         }
-        return false;
     }
 
 
 }
-
