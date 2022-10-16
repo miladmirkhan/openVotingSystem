@@ -68,12 +68,8 @@ public class Candidate {
     public void setGroup(String group) {
         this.group = group;
     }
-    public boolean isEligible(int age){
-        if(age>=18){
-            return true;
-        }
-        else
-            return false;
+    public boolean isEligible(boolean eligible){
+        this.isEligible=eligible;
     }
 
     @Override
