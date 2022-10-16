@@ -1,9 +1,10 @@
 public class Candidate {
     private int nationalID;
     private String name, email, mobileNumber, password, address, group;
+    boolean isValid;
 
 
-    public Candidate(int id, String name, String email, String mobileNumber, String password, String address, String group) {
+    public Candidate(int id, String name, String email, String mobileNumber, String password, String address, String group,boolean isValid) {
         this.nationalID = id;
         this.name = name;
         this.email = email;
@@ -11,6 +12,7 @@ public class Candidate {
         this.password = password;
         this.address = address;
         this.group = group;
+        this.isValid=isValid;
     }
 
     public int getNationalID() {
@@ -32,6 +34,7 @@ public class Candidate {
     public String getEmail() {
         return email;
     }
+   
 
     public void setEmail(String email) {
         this.email = email;
@@ -69,6 +72,12 @@ public class Candidate {
         this.group = group;
     }
     
+    public boolean getValid(){
+        rerturn isValid;
+    }
+    public void setValid(boolean isValid){
+        this.isValid=isValid;
+    }
 
 
     @Override
