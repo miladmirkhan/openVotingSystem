@@ -9,9 +9,9 @@ public record VoterLoginRecord(int nationalId, String email, String password) {
 
     public boolean login(){
         if (nationalId==0){
-            //this should login with email and pass
+
         }else{
-            //login with national id
+
         }
         return false;
     }
