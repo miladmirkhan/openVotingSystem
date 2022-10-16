@@ -1,11 +1,10 @@
 public class Admin{
-  private final Object accessLevel;
-  private String fullname, id, email, password, phoneNo;
+  
+  private String fullname, nationalId, email, password, phoneNo;
 
-  public Admin(String fullname, String id, String email, String password, String phoneNo){
+  public Admin(String fullname, String nationalId, String email, String password, String phoneNo){
     this.fullname=fullname;
-    this.id=id;
-    this.accessLevel=accessLevel;
+    this.nationalId=nationalId;
     this.email=email;
     this.password=password;
     this.phoneNo=phoneNo;
@@ -15,8 +14,8 @@ public class Admin{
     return fullname;
   }
   
-  public String getId(){
-    return id;
+  public String getNationalId(){
+    return nationalId;
   }
 
   public String getEmail(){
@@ -31,12 +30,12 @@ public class Admin{
     return phoneNo;
   }
 
-  public void setFullname(String fullname){
+  public void setFnationalIdullname(String fullname){
     this.fullname=fullname;
   }
 
-  public void setId(String id){
-    this.id=id;
+  public void setNationalId(String nationalId){
+    this.nationalId=nationalId;
   }
 
   public void setEmail(String email){
@@ -53,7 +52,7 @@ public class Admin{
 
   public String toString(){
     return "Admin{Fullname= "+fullname
-    + "\nNationalID= "+ id
+    + "\nNationalID= "+ nationalId
     +"\nEmail= "+email
     +"\nPassword= "+password
     +"\nPhoneNo= "+phoneNo
