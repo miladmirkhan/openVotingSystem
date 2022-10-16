@@ -1,7 +1,7 @@
 public class Candidate {
     private int nationalID;
     private String name, email, mobileNumber, password, address, group;
-    boolean isValid;
+    private boolean isValid;
 
 
     public Candidate(int id, String name, String email, String mobileNumber, String password, String address, String group,boolean isValid) {
