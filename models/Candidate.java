@@ -73,7 +73,7 @@ public class Candidate {
     }
     
     public boolean getValid(){
-        rerturn isValid;
+        return isValid;
     }
     public void setValid(boolean isValid){
         this.isValid=isValid;
