@@ -1,25 +1,17 @@
+public class Voter {
 
+    private String fullName, email, mobileNumber, password, address, nationalID,zone;
+    
+    private Vote vote;
 
-public  class Voter {
-
-    private String fullName;
-    private String email;
-    private String mobileNumber;
-    private String password;
-    private String address;
-    private String nationalId;
-    private boolean voted;
-
-
-    public Voter(String fullName, String email, String mobileNumber, String password, String address, String nationalId, boolean voted) {
+    public Voter(String fullName, String email, String mobileNumber, String password, String address, String nationalID,String zone) {
         this.fullName = fullName;
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.password = password;
         this.address = address;
-       
-        this.nationalId = nationalId;
-        this.voted = voted;
+       this.zone=zone;
+        this.nationalID = nationalID;
     }
 
     public String getFullName() {
@@ -62,22 +54,31 @@ public  class Voter {
         this.address = address;
     }
 
-    public String getNationalId() {
-        return nationalId;
+    public String getNationalID() {
+        return nationalID;
     }
 
-    public void setNationalId(String nationalId) {
-        this.nationalId = nationalId;
+    public void setNationalID(String nationalID) {
+        this.nationalID = nationalID;
     }
 
-    public boolean isVoted() {
-        return voted;
+
+
+    public String getZone() {
+        return zone;
     }
 
-    public void setVoted(boolean voted) {
-        this.voted = voted;
+    public void setZone(String zone) {
+        this.zone = zone;
     }
 
+    public Vote getVote() {
+        return vote;
+    }
+    public void setVote(Vote vote) {
+        this.vote = vote;
+    }
+   
     @Override
     public String toString() {
         return "Voter{" +
@@ -86,8 +87,10 @@ public  class Voter {
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
-                ", nationalId='" + nationalId + '\'' +
-                ", voted=" + voted +
-                '}';
+                ", nationalID='" + nationalID + '\'' +
+                '}' ;
+    }
+
+    public void Vote() {
     }
 }
