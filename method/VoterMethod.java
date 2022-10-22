@@ -52,4 +52,36 @@ public  void editVoter(ArrayList<Voter> list) {
     }
 }
 
+public ArrayList<String> displayVoter(ArrayList<Voter> voters){
+    var voterDisplay = new ArrayList<String>();
+    for(Voter voter: voters){
+        voterDisplay.add(voter.toString());
+    }
+    return voterDisplay;
+}
+
+public void deleteVoter(ArrayList<Voter> voters, Voter voter){
+    voters.remove(voter);
+}
+
+public boolean deleteVoterByNationalId(ArrayList<Voter> voters, String id){
+    for(Voter voter: voters){
+        if (voter.getNationalID().equals(id)){
+            voters.remove(voter);
+            return true;
+        }
+    }
+    return false;
+}
+
+public boolean deleteVoterByFullName(ArrayList<Voter> voters, String fullName){
+    for(Voter voter: voters){
+        if (voter.getFullName().equals(fullName)){
+            voters.remove(voter);
+            return true;
+        }
+    }
+    return false;
+}
+
 }
