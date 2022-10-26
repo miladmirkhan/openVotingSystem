@@ -1,10 +1,10 @@
 public class Candidate {
 
     private String nationalID,name, email, mobileNumber, password, address, group,zone;
-    private boolean isValid;
-    
+
+
     public Candidate(String id, String name, String email, String mobileNumber,
-                     String password, String address, String group,boolean isValid,String zone) {
+                     String password, String address, String group,String zone) {
         this.nationalID = id;
         this.name = name;
         this.email = email;
@@ -12,7 +12,6 @@ public class Candidate {
         this.password = password;
         this.address = address;
         this.group = group;
-        this.isValid=isValid;
         this.zone=zone;
     }
 
@@ -71,13 +70,6 @@ public class Candidate {
     public void setGroup(String group) {
         this.group = group;
     }
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
-    }
     public String getZone() {
         return zone;
     }
@@ -85,15 +77,9 @@ public class Candidate {
     public void setZone(String zone) {
         this.zone = zone;
     }
-    public String getZone(){
-        return zone;
-    }
-    public void setZone(String zone){
-        this.zone=zone;
-    }
 
 
-   @Override
+    @Override
     public String toString() {
         return "Candidate{" +
                 "nationalID='" + nationalID + '\'' +
@@ -104,8 +90,11 @@ public class Candidate {
                 ", address='" + address + '\'' +
                 ", group='" + group + '\'' +
                 ", zone='" + zone + '\'' +
-                ", isValid=" + isValid +
                 '}';
     }
-}
 
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+
+}

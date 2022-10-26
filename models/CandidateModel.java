@@ -1,20 +1,7 @@
-public class Candidate {
 
+public class CandidateModel {
     private String nationalID,name, email, mobileNumber, password, address, group,zone;
-    private boolean isValid;
-    
-    public Candidate(String id, String name, String email, String mobileNumber,
-                     String password, String address, String group,boolean isValid,String zone) {
-        this.nationalID = id;
-        this.name = name;
-        this.email = email;
-        this.mobileNumber = mobileNumber;
-        this.password = password;
-        this.address = address;
-        this.group = group;
-        this.isValid=isValid;
-        this.zone=zone;
-    }
+    private boolean valid;
 
     public String getNationalID() {
         return nationalID;
@@ -72,11 +59,12 @@ public class Candidate {
         this.group = group;
     }
     public boolean isValid() {
-        return isValid;
+        return this.valid;
     }
 
     public void setValid(boolean valid) {
-        isValid = valid;
+        this.valid=valid;
+
     }
     public String getZone() {
         return zone;
@@ -85,27 +73,4 @@ public class Candidate {
     public void setZone(String zone) {
         this.zone = zone;
     }
-    public String getZone(){
-        return zone;
-    }
-    public void setZone(String zone){
-        this.zone=zone;
-    }
-
-
-   @Override
-    public String toString() {
-        return "Candidate{" +
-                "nationalID='" + nationalID + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", group='" + group + '\'' +
-                ", zone='" + zone + '\'' +
-                ", isValid=" + isValid +
-                '}';
-    }
 }
-
