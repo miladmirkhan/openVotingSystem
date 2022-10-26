@@ -100,8 +100,11 @@ public boolean deleteVoterByFullName(ArrayList<Voter> voters, String fullName){
         FileWriter fileWriter = new FileWriter("Vote.txt");
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         for (Vote Vote : VoteList) {
-            bufferedWriter.write("1."+ Vote.getRankedVote1() + "," +"2."+ Vote.getRankedVote2() + "," +"3."+ Vote.getRankedVote3() );
+            if (Vote.isVoted()) {
+                bufferedWriter.write("1."+ Vote.getRankedVote1() + "," +"2."+ Vote.getRankedVote2() + "," +"3."+ Vote.getRankedVote3() );
             bufferedWriter.newLine();
+            }
+           
         }
         bufferedWriter.close();
     }

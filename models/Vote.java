@@ -52,5 +52,4 @@ public class Vote  {
        
         return super.toString();
     }
-    // 
 }
