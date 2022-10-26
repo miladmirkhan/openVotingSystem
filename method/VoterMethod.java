@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,5 +85,24 @@ public boolean deleteVoterByFullName(ArrayList<Voter> voters, String fullName){
     }
     return false;
 }
+// send information to file of .txt
 
+ public void sendVoterDetailsToTextFile(ArrayList<Voter> VoterList) throws IOException {
+    FileWriter fileWriter = new FileWriter("Voter.txt");
+    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    for (Voter Voter : VoterList) {
+        bufferedWriter.write(Voter.getNationalID() + "," + Voter.getFullName() + "," + Voter.getEmail() + "," + Voter.getMobileNumber() + "," + Voter.getPassword() + "," + Voter.getAddress() + "," + Voter.getZone() + "," + Voter.getVote());
+        bufferedWriter.newLine();
+    }
+    bufferedWriter.close();
+}
+    public void sendVoteDetailsToTextFile(ArrayList<Vote> VoteList) throws IOException {
+        FileWriter fileWriter = new FileWriter("Vote.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        for (Vote Vote : VoteList) {
+            bufferedWriter.write("1."+ Vote.getRankedVote1() + "," +"2."+ Vote.getRankedVote2() + "," +"3."+ Vote.getRankedVote3() );
+            bufferedWriter.newLine();
+        }
+        bufferedWriter.close();
+    }
 }
