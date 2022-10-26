@@ -1,10 +1,11 @@
+package week_two.src;
+
 public class Candidate {
-    private int nationalID;
-    private String name, email, mobileNumber, password, address, group;
+
+    private String nationalID,name, email, mobileNumber, password, address, group,zone;
     private boolean isValid;
-
-
-    public Candidate(int id, String name, String email, String mobileNumber, String password, String address, String group,boolean isValid) {
+    public Candidate(String id, String name, String email, String mobileNumber,
+                     String password, String address, String group,boolean isValid,String zone) {
         this.nationalID = id;
         this.name = name;
         this.email = email;
@@ -13,13 +14,14 @@ public class Candidate {
         this.address = address;
         this.group = group;
         this.isValid=isValid;
+        this.zone=zone;
     }
 
-    public int getNationalID() {
+    public String getNationalID() {
         return nationalID;
     }
 
-    public void setNationalID(int nationalID) {
+    public void setNationalID(String nationalID) {
         this.nationalID = nationalID;
     }
 
@@ -34,7 +36,6 @@ public class Candidate {
     public String getEmail() {
         return email;
     }
-   
 
     public void setEmail(String email) {
         this.email = email;
@@ -71,25 +72,35 @@ public class Candidate {
     public void setGroup(String group) {
         this.group = group;
     }
-    
-    public boolean getValid(){
+    public boolean isValid() {
         return isValid;
     }
-    public void setValid(boolean isValid){
-        this.isValid=isValid;
+
+    public void setValid(boolean valid) {
+        isValid = valid;
+    }
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
     }
 
 
     @Override
     public String toString() {
         return "Candidate{" +
-                "nationalID=" + nationalID +
+                "nationalID='" + nationalID + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", group='" + group + '\'' +
+                ", zone='" + zone + '\'' +
+                ", isValid=" + isValid +
                 '}';
     }
 }
+
