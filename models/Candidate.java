@@ -1,9 +1,9 @@
-package week_two.src;
 
 public class Candidate {
 
     private String nationalID,name, email, mobileNumber, password, address, group,zone;
     private boolean isValid;
+    
     public Candidate(String id, String name, String email, String mobileNumber,
                      String password, String address, String group,boolean isValid,String zone) {
         this.nationalID = id;
