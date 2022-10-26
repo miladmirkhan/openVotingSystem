@@ -1,62 +1,44 @@
 public class Admin{
-  
-  private String fullname, nationalId, email, password, phoneNo;
+    private String fullname, nationalId, email, password, phoneNo;
 
-  public Admin(String fullname, String nationalId, String email, String password, String phoneNo){
-    this.fullname=fullname;
-    this.nationalId=nationalId;
-    this.email=email;
-    this.password=password;
-    this.phoneNo=phoneNo;
-  }
-  
-  public String getFullname(){
-    return fullname;
-  }
-  
-  public String getNationalId(){
-    return nationalId;
-  }
+    public String getFullname(){
+        return fullname;
+    }
 
-  public String getEmail(){
-    return email;
-  }
+    public String getNationalId(){
+        return nationalId;
+    }
 
-  public String getPassword(){
-    return password;
-  }
+    public String getEmail(){
+        return email;
+    }
 
-  public String getPhoneNo(){
-    return phoneNo;
-  }
+    public String getPassword(){
+        return password;
+    }
 
-  public void setFnationalIdullname(String fullname){
-    this.fullname=fullname;
-  }
+    public String getPhoneNo(){
+        return phoneNo;
+    }
 
-  public void setNationalId(String nationalId){
-    this.nationalId=nationalId;
-  }
+    public void setFullname(String fullname){
+        this.fullname=fullname;
+    }
 
-  public void setEmail(String email){
-    this.email=email;
-  }
+    public void setNationalId(String nationalId){
+        this.nationalId=nationalId;
+    }
 
-  public void setPassword(String password){
-    this.password=password;
-  }
+    public void setEmail(String email){
+        this.email=email;
+    }
 
-  public void setPhoneNo(String phoneNo){
-    this.phoneNo=phoneNo;
-  }
+    public void setPassword(String password){
+        this.password=password;
+    }
 
-  public String toString(){
-    return "Admin{Fullname= "+fullname
-    + "\nNationalID= "+ nationalId
-    +"\nEmail= "+email
-    +"\nPassword= "+password
-    +"\nPhoneNo= "+phoneNo
-    + "}";
-    
-  }
+    public void setPhoneNo(String phoneNo){
+        this.phoneNo=phoneNo;
+    }
+
 }
