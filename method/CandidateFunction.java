@@ -20,6 +20,7 @@ public class CandidateFunction {
         String zone = input.nextLine();
         Candidate newCandidate = new Candidate(nationalID, name, email, mobileNumber, password, address, group, zone);
         candidateList.add(newCandidate);
+        input.close();
     }
 
     public static void displayCandidates(ArrayList<Candidate> candidateArrayList) {
@@ -33,6 +34,7 @@ public class CandidateFunction {
         System.out.println("enter the ID");
         String id = input.nextLine();
         list.removeIf(x -> x.getNationalID().equals(id));
+        input.close();
     }
 
     public static void editCandidate(ArrayList<Candidate> list) {
@@ -72,6 +74,7 @@ public class CandidateFunction {
                 String newZone = input.next();
                 list.stream().filter(x -> x.getNationalID().equals(id)).forEach(x -> x.setZone(newZone));
         }
+        input.close();
     }
 }
 

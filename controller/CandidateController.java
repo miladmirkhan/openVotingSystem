@@ -1,7 +1,7 @@
 public class CandidateController {
-    private CandidateModel model;
+    private Candidate model;
     private CandidateView view;
-    public CandidateController(CandidateModel model,CandidateView view){
+    public CandidateController(Candidate model,CandidateView view){
         this.model=model;
         this.view=view;
     }
