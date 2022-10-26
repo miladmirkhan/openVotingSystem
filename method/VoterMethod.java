@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class VoterMethod<Voter> {
+public class VoterMethod{
 
 // add 
 public void addVoter(ArrayList<Voter> list,Voter voter){
@@ -35,7 +35,7 @@ public  void editVoter(ArrayList<Voter> list) {
             System.out.println("Enter the new Email:");
             String newEmail = input.next();
             
-            list.stream().filter(x -> x.getNatioxnalID().equals(id)).forEach(x -> x.setEmail(newEmail));
+            list.stream().filter(x -> x.getNationalID().equals(id)).forEach(x -> x.setEmail(newEmail));
             break;
         case 2:
             System.out.println("Enter the new mobile number:");
@@ -44,10 +44,11 @@ public  void editVoter(ArrayList<Voter> list) {
             break;
         case 3:
             System.out.println("Enter the new password :");
-            String newPassword = input.next();
+            String newPassword = input.next(); 
             list.stream().filter(x -> x.getNationalID().equals(id)).forEach(x -> x.setPassword(newPassword));
             break;
     }
+    input.close();
 }
 
 public ArrayList<String> displayVoter(ArrayList<Voter> voters){
