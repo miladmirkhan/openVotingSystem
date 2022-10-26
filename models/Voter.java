@@ -78,19 +78,5 @@ public class Voter {
     public void setVote(Vote vote) {
         this.vote = vote;
     }
-   
-    @Override
-    public String toString() {
-        return "Voter{" +
-                "fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", nationalID='" + nationalID + '\'' +
-                '}' ;
-    }
 
-    public void Vote() {
-    }
 }

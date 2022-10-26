@@ -1,9 +1,10 @@
 public class Candidate {
-    
-     private String nationalID,name, email, mobileNumber, password, address, group,zone;
-     private boolean isValid;
 
-    public Candidate(String id, String name, String email, String mobileNumber, String password, String address, String group,boolean isValid,String zone) {
+    private String nationalID,name, email, mobileNumber, password, address, group,zone;
+    private boolean isValid;
+    
+    public Candidate(String id, String name, String email, String mobileNumber,
+                     String password, String address, String group,boolean isValid,String zone) {
         this.nationalID = id;
         this.name = name;
         this.email = email;
@@ -34,7 +35,6 @@ public class Candidate {
     public String getEmail() {
         return email;
     }
-   
 
     public void setEmail(String email) {
         this.email = email;
@@ -71,12 +71,19 @@ public class Candidate {
     public void setGroup(String group) {
         this.group = group;
     }
-    
-    public boolean getValid(){
+    public boolean isValid() {
         return isValid;
     }
-    public void setValid(boolean isValid){
-        this.isValid=isValid;
+
+    public void setValid(boolean valid) {
+        isValid = valid;
+    }
+    public String getZone() {
+        return zone;
+    }
+
+    public void setZone(String zone) {
+        this.zone = zone;
     }
     public String getZone(){
         return zone;
@@ -101,3 +108,4 @@ public class Candidate {
                 '}';
     }
 }
+
