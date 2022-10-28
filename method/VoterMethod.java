@@ -152,22 +152,4 @@ public void sendVoteListToJson(ArrayList<Vote> votes) throws IOException {
     writer.close();
 }
 
-
-public static void main(String[] args) throws IOException {
-    // make list of voter with data
-    ArrayList<Vote> voters = new ArrayList<Vote>();
-     
-    voters.add(new Vote(true,"Ahmed","Ali","Mohamed"));
-    voters.add(new Vote(false,"mina","Ali","Mohamed"));
-    voters.add(new Vote(true,"milad","Ali","Mohamed"));
-    // make object from class
-    VoterMethod voterMethod = new VoterMethod();
-    // use method sendvoter to file
-   
-    voterMethod.sendVoteListToJson(voters);
-
-     
-
-}
-
 }
