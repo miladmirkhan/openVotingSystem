@@ -1,11 +1,12 @@
 public class Voter {
 
-    private String fullName, email, mobileNumber, password, address, nationalID,zone;
+    private String fullName, email, mobileNumber,age, password, address, nationalID,zone;
     
     private Vote vote;
 
-    public Voter(String fullName, String email, String mobileNumber, String password, String address, String nationalID,String zone) {
+    public Voter(String fullName,String age, String email, String mobileNumber, String password, String address, String nationalID,String zone) {
         this.fullName = fullName;
+        this.age = age;
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.password = password;
@@ -14,12 +15,19 @@ public class Voter {
         this.nationalID = nationalID;
     }
 
+
     public String getFullName() {
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+    public String getAge() {
+        return age;
+    }
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getEmail() {

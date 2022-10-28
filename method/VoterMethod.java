@@ -85,27 +85,89 @@ public boolean deleteVoterByFullName(ArrayList<Voter> voters, String fullName){
     }
     return false;
 }
-// send information to file of .txt
 
- public void sendVoterDetailsToTextFile(ArrayList<Voter> VoterList) throws IOException {
-    FileWriter fileWriter = new FileWriter("Voter.txt");
-    BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-    for (Voter Voter : VoterList) {
-        bufferedWriter.write(Voter.getNationalID() + "," + Voter.getFullName() + "," + Voter.getEmail() + "," + Voter.getMobileNumber() + "," + Voter.getPassword() + "," + Voter.getAddress() + "," + Voter.getZone() + "," + Voter.getVote());
-        bufferedWriter.newLine();
-    }
-    bufferedWriter.close();
-}
-    public void sendVoteDetailsToTextFile(ArrayList<Vote> VoteList) throws IOException {
-        FileWriter fileWriter = new FileWriter("Vote.txt");
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        for (Vote Vote : VoteList) {
-            if (Vote.isVoted()) {
-                bufferedWriter.write("1."+ Vote.getRankedVote1() + "," +"2."+ Vote.getRankedVote2() + "," +"3."+ Vote.getRankedVote3() );
-            bufferedWriter.newLine();
-            }
-           
+
+public void sendVoterListToJson(ArrayList<Voter> voters) throws IOException {
+    BufferedWriter writer = new BufferedWriter(new FileWriter("voters.json"));
+    writer.write("{");
+        writer.write("\"Voter\":[");
+        for (int i = 0; i < voters.size(); i++) {
+       
+            writer.write("{");
+        
+        writer.write("\n \"fullName\": \"" + voters.get(i).getFullName() + "\" \n");
+
+        writer.write(", \"Age\": \"" + voters.get(i).getAge() + "\"\n");
+    
+        writer.write(", \"nationalID\": \"" + voters.get(i).getNationalID() + "\" \n");
+     
+        writer.write(", \"email\": \"" + voters.get(i).getEmail() + "\" \n");
+      
+        writer.write(", \"mobileNumber\": \"" + voters.get(i).getMobileNumber() + "\"\n");
+   
+        writer.write(", \"password\": \"" + voters.get(i).getPassword() + "\"\n");
+     
+        writer.write(", \"address\": \"" + voters.get(i).getAddress() + "\"\n");
+       
+        writer.write(", \"zone\": \"" + voters.get(i).getZone() + "\"\n");
+       
+        writer.write(", \"voted\": \"" + voters.get(i).getVote() + "\"\n");
+        writer.write("}");
+        if (i != voters.size() - 1) {
+            writer.write(",");
         }
-        bufferedWriter.close();
     }
+
+
+    writer.write("]}");
+    writer.close();
+}
+
+public void sendVoteListToJson(ArrayList<Vote> votes) throws IOException {
+    BufferedWriter writer = new BufferedWriter(new FileWriter("votes.json"));
+    writer.write("{");
+        writer.write("\"Voter\":[");
+        for (int i = 0; i < votes.size(); i++) {
+            // voter full name 
+            
+            if( votes.get(i).isVoted()){
+          writer.write("{");
+        writer.write("\n \"Voted\": \"" + votes.get(i).isVoted() + "\" \n");
+       
+        writer.write(", \"Vote one\": \"" + votes.get(i).getRankedVote1() + "\" \n");
+       
+        writer.write(", \"Vote two\": \"" + votes.get(i).getRankedVote2() + "\" \n");
+      
+        writer.write(", \"Vote three\": \"" + votes.get(i).getRankedVote3() + "\"\n");
+      }else{
+        continue;
+      }
+        writer.write("}");
+        if (i != votes.size() - 1||i==votes.size()) {
+            writer.write(",");
+        }
+    }
+
+    writer.write("]}");
+    writer.close();
+}
+
+
+public static void main(String[] args) throws IOException {
+    // make list of voter with data
+    ArrayList<Vote> voters = new ArrayList<Vote>();
+     
+    voters.add(new Vote(true,"Ahmed","Ali","Mohamed"));
+    voters.add(new Vote(false,"mina","Ali","Mohamed"));
+    voters.add(new Vote(true,"milad","Ali","Mohamed"));
+    // make object from class
+    VoterMethod voterMethod = new VoterMethod();
+    // use method sendvoter to file
+   
+    voterMethod.sendVoteListToJson(voters);
+
+     
+
+}
+
 }
