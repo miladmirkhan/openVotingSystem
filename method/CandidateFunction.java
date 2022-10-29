@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
 import java.util.*;
 public class CandidateFunction {
     public static void addCandidate(ArrayList<Candidate> candidateList) {
@@ -76,6 +83,53 @@ public class CandidateFunction {
         }
         input.close();
     }
+
+    public static void sendCandidateListToJson(ArrayList<Candidate> candidates) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("candidates.json"));
+        writer.write("{");
+            writer.write("\"Candidate\":[");
+            for (int i = 0; i < candidates.size(); i++) {
+           
+                writer.write("{");
+            
+            writer.write("\n \"ID\": \"" + candidates.get(i).getNationalID() + "\" \n");
+    
+            writer.write(", \"Name\": \"" + candidates.get(i).getName() + "\"\n");
+        
+            writer.write(", \"Email\": \"" + candidates.get(i).getEmail() + "\" \n");
+         
+            writer.write(", \"Mobile Number\": \"" + candidates.get(i).getMobileNumber() + "\" \n");
+          
+            writer.write(", \"password\": \"" + candidates.get(i).getPassword() + "\"\n");
+       
+            writer.write(", \"address\": \"" + candidates.get(i).getAddress() + "\"\n");
+         
+            writer.write(", \"group\": \"" + candidates.get(i).getGroup() + "\"\n");
+           
+            writer.write(", \"zone\": \"" + candidates.get(i).getZone() + "\"\n");
+           
+            writer.write(", \"Is Valid\": \"" + candidates.get(i).isValid() + "\"\n");
+            writer.write("}");
+            if (i != candidates.size() - 1) {
+                writer.write(",");
+            }
+        }
+    
+    
+        writer.write("]}");
+        writer.close();
+    }
+    
+    public static void readCandidateListFromJson() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("candidates.json"));
+        String line = reader.readLine();
+        while (line != null) {
+            System.out.println(line);
+            line = reader.readLine();
+        }
+        reader.close();
+    }
+
 }
 
 
