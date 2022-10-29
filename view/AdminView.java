@@ -1,3 +1,5 @@
+package view;
+
 public class AdminView {
     public void printAdminDetails(String fullname,String nationalID, String email, String password, String phoneNo){
         System.out.println("Admin:");

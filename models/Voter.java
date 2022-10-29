@@ -1,3 +1,5 @@
+package models;
+
 public class Voter {
 
     private String fullName, email, mobileNumber,age, password, address, nationalID,zone;

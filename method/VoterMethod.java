@@ -1,3 +1,8 @@
+package method;
+
+import models.Vote;
+import models.Voter;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -9,7 +14,7 @@ import java.util.Scanner;
 public class VoterMethod{
 
 // add 
-public void addVoter(ArrayList<Voter> list,Voter voter){
+public void addVoter(ArrayList<Voter> list, Voter voter){
 
     list.add(voter);
 }

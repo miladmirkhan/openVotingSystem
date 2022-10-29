@@ -1,5 +1,7 @@
-public record AdminRecord(int id, String fullName, 
-                    String email, String password, String phoneNumber)
+package records;
+
+public record AdminRecord(int id, String fullName,
+                          String email, String password, String phoneNumber)
 {
     
     public AdminRecord(int id, String fullName,

@@ -1,7 +1,12 @@
+package controller;
+
+import models.Candidate;
+import view.CandidateView;
+
 public class CandidateController {
     private Candidate model;
     private CandidateView view;
-    public CandidateController(Candidate model,CandidateView view){
+    public CandidateController(Candidate model, CandidateView view){
         this.model=model;
         this.view=view;
     }

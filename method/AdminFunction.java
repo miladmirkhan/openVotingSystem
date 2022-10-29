@@ -1,4 +1,11 @@
-import java.util.*;
+package method;
+
+import models.Admin;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 
 public class AdminFunction{
@@ -52,6 +59,45 @@ public class AdminFunction{
         list.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPassword(newPassword));
         break;
     }
+  }
+
+  @SuppressWarnings("unchecked")
+  public List<Admin> openAdminList() {
+    List<Admin> list = new ArrayList<>();
+    try {
+      FileInputStream file = new FileInputStream("files/admin.txt");
+      ObjectInputStream get = new ObjectInputStream(file);
+      list = (List<Admin>) get.readObject();
+
+      file.close();
+      get.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found ");
+    } catch (IOException e) {
+      System.out.println("Error initializing stream");
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    return list;
+  }
+
+  public boolean saveAdminListToFile(List<Admin> items){
+    try{
+      FileOutputStream f = new FileOutputStream("files/admin.txt");
+      ObjectOutputStream o = new ObjectOutputStream(f);
+      o.writeObject(items);
+      o.close();
+      f.close();
+      System.out.println("done");
+
+    } catch (FileNotFoundException e){
+      System.out.println("File not found Exception.");
+      return false;
+    } catch (IOException e){
+      System.out.println("Error initializing stream. "+e.getMessage());
+      return false;
+    }
+    return true;
   }
 
 }

@@ -1,3 +1,9 @@
+package controller;
+
+import models.Vote;
+import models.Voter;
+import view.VoterView;
+
 public class VoterController {
         private Voter model;
         private VoterView view;
@@ -66,7 +72,7 @@ public class VoterController {
         }
     
         public void updateView(){
-            view.printVoterDetails(model.getFullName(), model.getNationalID(), model.getEmail(), model.getPassword(), model.getMobileNumber(),model.getVote());
+            view.printVoterDetails(model.getFullName(), model.getNationalID(), model.getEmail(), model.getPassword(), model.getMobileNumber(), model.getVote() );
         }
     
 }
