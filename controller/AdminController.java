@@ -1,3 +1,8 @@
+package controller;
+
+import models.Admin;
+import view.AdminView;
+
 public class AdminController {
     private Admin model;
     private AdminView view;
@@ -50,4 +55,6 @@ public class AdminController {
     public void updateView(){
         view.printAdminDetails(model.getFullname(), model.getNationalId(), model.getEmail(), model.getPassword(), model.getPhoneNo());
     }
+
+
 }

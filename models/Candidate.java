@@ -1,3 +1,4 @@
+package models;
 
 public class Candidate {
     private String nationalID,name, email, mobileNumber, password, address, group,zone;

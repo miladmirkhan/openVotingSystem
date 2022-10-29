@@ -1,3 +1,5 @@
+package view;
+
 public class CandidateView {
     public void printCandidateDetails(String nationalID, String name, String email,String mobileNumber,String password,String address, String group, String zone, boolean valid ){
         System.out.println("Candidate:");

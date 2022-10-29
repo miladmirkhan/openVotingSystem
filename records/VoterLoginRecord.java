@@ -1,3 +1,5 @@
+package records;
+
 public record VoterLoginRecord(int nationalId, String email, String password) {
     public VoterLoginRecord(String email, String password) {
         this(0, email, password);

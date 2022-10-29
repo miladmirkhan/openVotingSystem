@@ -1,4 +1,8 @@
-public class Admin{
+package models;
+
+import java.io.Serializable;
+
+public class Admin implements Serializable {
     private String fullname, nationalId, email, password, phoneNo;
    
     public Admin(String fullname, String nationalId, String email, String password, String phoneNo){
