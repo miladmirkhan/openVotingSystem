@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -150,6 +152,27 @@ public void sendVoteListToJson(ArrayList<Vote> votes) throws IOException {
 
     writer.write("]}");
     writer.close();
+}
+
+public static void readVoterListFromJson(ArrayList<Voter> voters) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader("voters.json"));
+    String line = reader.readLine();
+    while (line != null) {
+        System.out.println(line);
+        line = reader.readLine();
+    }
+    reader.close();
+}
+
+public static void readVoteListFromJson(ArrayList<Vote> votes) throws IOException {
+    BufferedReader reader = new BufferedReader(new FileReader("votes.json"));
+    String line = reader.readLine();
+    while (line != null) {
+        System.out.println(line);
+        line = reader.readLine();
+    }
+    reader.close();
+
 }
 
 }
