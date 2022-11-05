@@ -11,6 +11,73 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.util.*;
 public class CandidateFunction {
+    static Scanner console = new Scanner(System.in);
+    public static void candidateFunction(ArrayList<Candidate> candidateList) throws IOException {
+        while (true){
+            int option = -1;
+            System.out.println("Welcome To Candidate Application" +
+                    "\n1.Sign In" +
+                    "\n2.Sign Up" +
+                    "\n3.Delete Candidate" +
+                    "\n4.Display all Candidate" +
+                    "\n0.Quit\n");
+            try {
+                option = console.nextInt();
+            } catch (Exception e){
+                System.out.println("\n\n\n\n\n\n\n\nPlease enter a number");
+                continue;
+            }
+            if (option==1){
+                signIn(candidateList);
+            }else if(option==2){
+                addCandidate(candidateList);
+                sendCandidateListToJson(candidateList);
+            }else if (option==3){
+                deleteCandidate(candidateList);
+                sendCandidateListToJson(candidateList);
+            }else if (option==4){
+                displayCandidates(candidateList);
+                sendCandidateListToJson(candidateList);
+            }else if(option==0){
+                System.out.println("Bye Bye");
+                break;
+            }else {
+                System.out.println("Enter a valid number");
+                continue;
+            }
+        }
+    }
+
+    public static boolean signIn(ArrayList<Candidate> candidateList){
+        System.out.println("\n\n\nCandidate SignIn");
+        while (true){
+            System.out.println("Please Enter Your NationalId:(0 to quit)\n");
+            String nationalId = console.next();
+            if (nationalId.equals("0")){
+                System.out.println("Bye BYe");
+                break;
+            }
+            System.out.println("\nPlease Enter Your Password:(0 to quit)\n");
+            String password = console.next();
+            if (password.equals("0")){
+                System.out.println("Bye BYe");
+                break;
+            }
+            var account = candidateList.stream()
+                    .filter(candidate -> candidate.getNationalID()==nationalId).findFirst();
+            if (account.isEmpty()){
+                System.out.println("This email not exist");
+            }else{
+                if (account.get().getPassword().equals(password)){
+                    System.out.println("Succeed");
+                    return true;
+                }else {
+                    System.out.println("Wrong password");
+                }
+            }
+        }
+        return false;
+    }
     public static void addCandidate(ArrayList<Candidate> candidateList) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the national id:");
