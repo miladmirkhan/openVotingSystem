@@ -243,7 +243,6 @@ public static void readVoteListFromJson(ArrayList<Vote> votes) throws IOExceptio
 
 }
 
-// make a while loop to sign in and sign up and delete and edit and display all voters and display all votes
 public void voterApplication(ArrayList<Voter> voterlist){
 
     while(true){

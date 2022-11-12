@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.util.*;
 public class CandidateFunction {
     static Scanner console = new Scanner(System.in);
+
     public static void candidateFunction(ArrayList<Candidate> candidateList) throws IOException {
         while (true){
             int option = -1;
@@ -200,7 +201,7 @@ public class CandidateFunction {
         }
         reader.close();
     }
-
+    
 }
 
 
