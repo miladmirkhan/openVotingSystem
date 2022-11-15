@@ -11,14 +11,6 @@ import org.json.simple.parser.ParseException;
 
 public class AdminFunction{
 
-  AdminJson adminJson;
-  
-  ArrayList<Admin> adminList;
-  
-  public AdminFunction(ArrayList<Admin> adminList){
-    
-    this.adminList=adminList;
-  }
   
   public void addAdmin() throws IOException, ParseException{
     Scanner io=new Scanner(System.in);
@@ -38,7 +30,13 @@ public class AdminFunction{
     AdminJson.sendAdminListToJson(adminList);
     System.out.println("Admin added successfully");
     
-    adminTerminal();
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
     
   }
 
@@ -56,16 +54,16 @@ public class AdminFunction{
             +Name+"\nEmail: "+Email+"\nMobile Number: "
             +MobileNumber+"\nPassword: "+Password+"\n");
       }
-    } else if(adminList==null){
+    } else{
       System.out.println("There is not any admin");
     }
-    System.out.println("Press 0 to continue or 6 to exit");
     Scanner io= new Scanner(System.in);
-    int cont= io.nextInt();
-    if(cont==0){
-      adminTerminal();
-    }else if(cont==6){
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
       System.exit(0);
+    }else{
+      adminTerminal();
     }
   
   }
@@ -73,111 +71,113 @@ public class AdminFunction{
   public void displayOneAdmin() throws IOException, ParseException{
     ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
-    if (adminList==null){
-      System.err.println("There is not any admin\n");
-      System.out.println("Press 0 to continue or 6 to exit");
-    int cont= io.nextInt();
-    if(cont==0){
-      adminTerminal();
-    }else if(cont==6){
-      System.exit(0);
-    }
-    }
-
-    System.out.println("Enter id of the admin you want to see: ");
-    String id=io.nextLine();
-    
-    for(Admin admin:adminList){
-      if(admin.getNationalId().equals(id)){
-          String ID= admin.getNationalId();
-          String Name= admin.getFullname();
-          String Email= admin.getEmail();
-          String MobileNumber= admin.getPhoneNo();
-          String Password= admin.getPassword();
-          
-          System.out.println("ID: "+ID+"\nName: "
-          +Name+"\nEmail: "+Email+"\nMobile Number: "
-          +MobileNumber+"\nPassword: "+Password);
-      }else{
-        System.out.println("This admin doesn't exist");
+    if (adminList!=null){
+      System.out.println("Enter id of the admin you want to see: ");
+      String id=io.nextLine();
+      
+      for(Admin admin:adminList){
+        if(admin.getNationalId().equals(id)){
+            String ID= admin.getNationalId();
+            String Name= admin.getFullname();
+            String Email= admin.getEmail();
+            String MobileNumber= admin.getPhoneNo();
+            String Password= admin.getPassword();
+            
+            System.out.println("ID: "+ID+"\nName: "
+            +Name+"\nEmail: "+Email+"\nMobile Number: "
+            +MobileNumber+"\nPassword: "+Password);
+        }else{
+          System.out.println("This admin doesn't exist");
+        }
       }
+    }else{
+      System.err.println("There is not any admin\n");
     }
-    System.out.println("Press 0 to continue or 6 to exit");
-    int cont= io.nextInt();
-    if(cont==0){
-      adminTerminal();
-    }else if(cont==6){
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
       System.exit(0);
+    }else{
+      adminTerminal();
     }
   }
 
-  public void removeAdmin(ArrayList<Admin> list) throws IOException, ParseException{
+  public void removeAdmin() throws IOException, ParseException{
+    ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
-    if(list==null){
-      System.out.println("There is not any admin");
+    if(adminList!=null){
+      System.out.println("Enter the national-ID that you want to remove: ");
+      String id=io.nextLine();
+      if(adminList.removeIf(x -> x.getNationalId().equals(id))){
+        AdminJson.sendAdminListToJson(adminList);
+        System.out.println("admin Successfully Deleted");
+      } else{
+        System.out.println("We couldn't find an admin whith such id");
+      }
 
+    }else{
+      System.out.println("There is not any admin");
+    }
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
       adminTerminal();
     }
-    System.out.println("Enter the national-ID that you want to remove: ");
-    String id=io.nextLine();
-    if(list.removeIf(x->x.getNationalId().equals(id))){
-
-      System.out.println("admin Successfully Deleted");
-      
-    } else{
-
-      System.out.println("We couldn't an admin whith such id");
-    }
-    adminTerminal();
   }
   
 
-  public void editAdmin(ArrayList<Admin> list) throws IOException, ParseException{
+  public void editAdmin() throws IOException, ParseException{
+    ArrayList<Admin> adminList = AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
-    if(list==null){
-      System.out.println("There is not any admin");
-
-      adminTerminal();
-    }
-    System.out.println("Enter the national-ID that you want to edit: ");
-    String id=io.nextLine();
-    
-    boolean found=false;
-    for (Admin admin1 : list) {
-      if( admin1.getNationalId().equals(id)){
-        found= true;
-        System.out.println("We found the admin1");
+    if(adminList!=null){
+      System.out.println("Enter the national-ID that you want to edit: ");
+      String id=io.nextLine();
+      boolean found=false;
+      for (Admin admin : adminList) {
+          if( admin.getNationalId().equals(id)){
+            found= true;
+          }
       }
-    }
-    if(!found){
-      System.out.println("There is not an admin with such id");
+      if(found){
+        System.out.println("What do you want to change ?\n1-Email\n2-Mobile Number\n3-password");
+        int option=io.nextInt();
+        switch(option){
+          case 1:
+          System.out.println("Enter the new Email:");
+          String newEmail=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setEmail(newEmail));
+          break;
 
+          case 2:
+          System.out.println("Enter the new mobile number:");
+          String newMobileNumber=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPhoneNo(newMobileNumber));
+          break;
+
+          case 3:
+          System.out.println("Enter the new password :");
+          String newPassword=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPassword(newPassword));
+          break;
+        }
+        AdminJson.sendAdminListToJson(adminList);
+      }else{
+        System.out.println("There is not an admin with such id");
+      }
+
+    } else{
+      System.out.println("There is not any admin");
+    }
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
       adminTerminal();
     }
     
-    
-    System.out.println("What do you want to change ?\n1-Email\n2-Mobile Number\n3-password");
-    int option=io.nextInt();
-    switch(option){
-      case 1:
-      System.out.println("Enter the new Email:");
-      String newEmail=io.next();
-      list.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setEmail(newEmail));
-
-      break;
-      case 2:
-      System.out.println("Enter the new mobile number:");
-      String newMobileNumber=io.next();
-      list.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPhoneNo(newMobileNumber));
-
-      break;
-      case 3:
-      System.out.println("Enter the new password :");
-      String newPassword=io.next();
-      list.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPassword(newPassword));
-
-      break;
-    }
   }
   
   public void adminTerminal() throws IOException, ParseException{
@@ -208,11 +208,11 @@ public class AdminFunction{
   
         break;
         case 4:
-        this.editAdmin(adminList);
+        this.editAdmin();
   
         break;
         case 5:
-        this.removeAdmin(adminList);
+        this.removeAdmin();
           break;
       
         default:

@@ -71,7 +71,7 @@ public class AdminJson {
         return adminList;
         }else{
             bufferedReader.close();
-            return adminList;
+            return adminList=null;
         }
 }
 }
