@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.util.*;
 
 import org.json.simple.parser.ParseException;
+
+import com.example.MainTerminal;
 public class CandidateFunction {
 
-    public void addCandidate() throws IOException, ParseException {
+    public void addCandidate() throws IOException, ParseException, java.text.ParseException {
         Scanner io = new Scanner(System.in);
         System.out.println("Enter the national id:");
         String nationalID = io.nextLine();
@@ -42,7 +44,7 @@ public class CandidateFunction {
         }
     }
 
-    public void displayAllCandidate() throws IOException, ParseException{
+    public void displayAllCandidate() throws IOException, ParseException, java.text.ParseException{
         ArrayList<Candidate> candidateList= CandidateJson.readAllCandidateFromJson();
         if(candidateList !=null){
           for(Candidate candidate:candidateList){
@@ -80,7 +82,7 @@ public class CandidateFunction {
       
       }
 
-    public void displayOneCandidate() throws IOException, ParseException{
+    public void displayOneCandidate() throws IOException, ParseException, java.text.ParseException{
         ArrayList<Candidate> candidateList= CandidateJson.readAllCandidateFromJson();
         Scanner io=new Scanner(System.in);
         if (candidateList!=null){
@@ -124,7 +126,7 @@ public class CandidateFunction {
         }
       }  
 
-      public void editCandidate() throws IOException, ParseException{
+      public void editCandidate() throws IOException, ParseException, java.text.ParseException{
         ArrayList<Candidate> candidateList = CandidateJson.readAllCandidateFromJson();
         Scanner io=new Scanner(System.in);
         if(candidateList!=null){
@@ -257,7 +259,7 @@ public class CandidateFunction {
         io.close();
     }
 
-    public void removeCandidate() throws IOException, ParseException{
+    public void removeCandidate() throws IOException, ParseException, java.text.ParseException{
         ArrayList<Candidate> candidateList= CandidateJson.readAllCandidateFromJson();
         Scanner io=new Scanner(System.in);
         if(candidateList!=null){
@@ -283,7 +285,7 @@ public class CandidateFunction {
       }
 
 
-    public void candidateTerminal() throws IOException, ParseException{
+    public void candidateTerminal() throws IOException, ParseException, java.text.ParseException{
         Scanner io=new Scanner(System.in);
         System.out.println("Please Choose a number:"+
         "\n1. Display candidates."+
@@ -316,10 +318,15 @@ public class CandidateFunction {
             break;
             case "5":
             this.removeCandidate();
-              break;
+            break;
+
+            case "6":
+            MainTerminal.adminMainTerminal();
+            break;
           
-            default:
-              break;
+            case "0":
+            System.exit(0);
+            break;
           }
         }
       }

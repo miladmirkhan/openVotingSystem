@@ -17,7 +17,7 @@ import models.Voter;
 public class VoterJson {
     
     public static void sendVoterListToJson(ArrayList<Voter> voters) throws IOException{
-        BufferedWriter writer = new BufferedWriter(new FileWriter("voters.json"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/voters.json"));
         writer.write("{");
         writer.write("\"Voter\":[");
         for (int i = 0; i < voters.size(); i++) {
@@ -53,14 +53,14 @@ public class VoterJson {
 
     public static ArrayList<Voter> readAllVoterFromJson() throws IOException, ParseException{
         JSONParser parser= new JSONParser();
-        FileReader reader = new FileReader("voters.json");
+        FileReader reader = new FileReader("data/voters.json");
         
         ArrayList<Voter> voterList=new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(reader);
         
         if (bufferedReader.readLine() != null){
 
-        reader = new FileReader("voters.json");
+        reader = new FileReader("data/voters.json");
         JSONObject objects = (JSONObject) parser.parse(reader);
         JSONArray array = (JSONArray) objects.get("Voter");    
             

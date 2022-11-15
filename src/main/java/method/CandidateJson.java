@@ -17,7 +17,7 @@ import models.Candidate;
 public class CandidateJson {
     
     public static void sendcandidateListToJson(ArrayList<Candidate> candidates) throws IOException{
-        BufferedWriter writer = new BufferedWriter(new FileWriter("candidates.json"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/candidates.json"));
         writer.write("{");
         writer.write("\"Candidate\":[");
             for (int i = 0; i < candidates.size(); i++) {
@@ -53,14 +53,14 @@ public class CandidateJson {
 
     public static ArrayList<Candidate> readAllCandidateFromJson() throws IOException, ParseException{
         JSONParser parser= new JSONParser();
-        FileReader reader = new FileReader("candidates.json");
+        FileReader reader = new FileReader("data/candidates.json");
         
         ArrayList<Candidate> candidateList=new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(reader);
         
         if (bufferedReader.readLine() != null){
 
-        reader = new FileReader("candidates.json");
+        reader = new FileReader("data/candidates.json");
         JSONObject objects = (JSONObject) parser.parse(reader);
         JSONArray array = (JSONArray) objects.get("Candidate");    
             

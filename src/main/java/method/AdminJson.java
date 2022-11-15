@@ -17,7 +17,7 @@ import models.Admin;
 public class AdminJson {
     
     public static void sendAdminListToJson(ArrayList<Admin> adminList) throws IOException{
-        BufferedWriter writer = new BufferedWriter(new FileWriter("admins.json"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/admins.json"));
         writer.write("{");
         writer.write("\"Admin\":[");
                 for (int i = 0; i < adminList.size(); i++) {
@@ -44,14 +44,14 @@ public class AdminJson {
 
     public static ArrayList<Admin> readAllAdminFromJson() throws IOException, ParseException{
         JSONParser parser= new JSONParser();
-        FileReader reader = new FileReader("admins.json");
+        FileReader reader = new FileReader("data/admins.json");
         
         ArrayList<Admin> adminList=new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(reader);
         
         if (bufferedReader.readLine() != null){
 
-        reader = new FileReader("admins.json");
+        reader = new FileReader("data/admins.json");
         JSONObject objects = (JSONObject) parser.parse(reader);
         JSONArray array = (JSONArray) objects.get("Admin");    
             

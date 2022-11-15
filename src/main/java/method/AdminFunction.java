@@ -8,11 +8,13 @@ import java.util.Scanner;
 
 import org.json.simple.parser.ParseException;
 
+import com.example.MainTerminal;
+
 
 public class AdminFunction{
 
   
-  public void addAdmin() throws IOException, ParseException{
+  public void addAdmin() throws IOException, ParseException, java.text.ParseException{
     Scanner io=new Scanner(System.in);
     System.out.println("Please enter your name: ");
     String name= io.nextLine();
@@ -40,7 +42,7 @@ public class AdminFunction{
     
   }
 
-  public void displayAllAdmin() throws IOException, ParseException{
+  public void displayAllAdmin() throws IOException, ParseException, java.text.ParseException{
     ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
     if(adminList !=null){
       for(Admin admin:adminList){
@@ -68,7 +70,7 @@ public class AdminFunction{
   
   }
 
-  public void displayOneAdmin() throws IOException, ParseException{
+  public void displayOneAdmin() throws IOException, ParseException, java.text.ParseException{
     ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
     if (adminList!=null){
@@ -102,7 +104,7 @@ public class AdminFunction{
     }
   }
 
-  public void removeAdmin() throws IOException, ParseException{
+  public void removeAdmin() throws IOException, ParseException, java.text.ParseException{
     ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
     if(adminList!=null){
@@ -128,7 +130,7 @@ public class AdminFunction{
   }
   
 
-  public void editAdmin() throws IOException, ParseException{
+  public void editAdmin() throws IOException, ParseException, java.text.ParseException{
     ArrayList<Admin> adminList = AdminJson.readAllAdminFromJson();
     Scanner io=new Scanner(System.in);
     if(adminList!=null){
@@ -180,7 +182,7 @@ public class AdminFunction{
     
   }
   
-  public void adminTerminal() throws IOException, ParseException{
+  public void adminTerminal() throws IOException, ParseException, java.text.ParseException{
     Scanner io=new Scanner(System.in);
     System.out.println("Please Choose a number:"+
     "\n1. Display admins."+
@@ -191,32 +193,37 @@ public class AdminFunction{
     "\n6. go back"
     );
     
-    int inputKey=0;
-    while (inputKey!=6) {
-      inputKey=io.nextInt();
+    String inputKey="0";
+    while (inputKey!="6") {
+      inputKey=io.nextLine();
       switch (inputKey) {
-        case 1:
+        case "1":
         this.displayAllAdmin();
         break;
 
-        case 2:
+        case "2":
         this.displayOneAdmin();
         break;
 
-        case 3:
+        case "3":
         this.addAdmin();
   
         break;
-        case 4:
+        case "4":
         this.editAdmin();
   
         break;
-        case 5:
+        case "5":
         this.removeAdmin();
-          break;
+        break;
+
+        case "6":
+        MainTerminal.adminMainTerminal();
+        break;
       
-        default:
-          break;
+        case "0":
+        System.exit(0);
+        break;
       }
     }
   }

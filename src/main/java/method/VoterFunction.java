@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.example.MainTerminal;
+
 public class VoterFunction{
 
     public void addVoter() throws IOException, ParseException, org.json.simple.parser.ParseException {
@@ -270,12 +272,15 @@ public void voterTerminal() throws IOException, ParseException, org.json.simple.
         break;
         case "5":
         this.removeVoter();
-          break;
+        break;
+
+        case "6":
+        MainTerminal.adminMainTerminal();
+        break;
       
         case "0":
-
         System.exit(0);
-          break;
+        break;
       }
     }
   }
