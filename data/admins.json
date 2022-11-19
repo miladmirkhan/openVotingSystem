@@ -1,0 +1,13 @@
+{"Admin":[{
+ "ID": "1999" 
+, "Name": "rafaat"
+, "Email": "milad@gmail.com" 
+, "Mobile Number": "20000" 
+, "password": "123"
+},{
+ "ID": "1234" 
+, "Name": "Rahen"
+, "Email": "rahen@email.com" 
+, "Mobile Number": "1234567890" 
+, "password": "rahen"
+}]}

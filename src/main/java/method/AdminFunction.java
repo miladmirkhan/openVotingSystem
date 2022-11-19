@@ -1,0 +1,231 @@
+package method;
+
+import models.Admin;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import org.json.simple.parser.ParseException;
+
+import com.example.MainTerminal;
+
+
+public class AdminFunction{
+
+  
+  public void addAdmin() throws IOException, ParseException, java.text.ParseException{
+    Scanner io=new Scanner(System.in);
+    System.out.println("Please enter your name: ");
+    String name= io.nextLine();
+    System.out.println("Please enter your national-ID: ");
+    String nationalId=io.nextLine();
+    System.out.println("Please enter your email: ");
+    String email=io.nextLine();
+    System.out.println("Please enter your phone number: ");
+    String phoneNo=io.nextLine();
+    System.out.println("please set a password: ");
+    String password=io.nextLine();
+    Admin newAdmin=new Admin(name,nationalId,email,password,phoneNo);
+    ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
+    adminList.add(newAdmin);
+    AdminJson.sendAdminListToJson(adminList);
+    System.out.println("Admin added successfully");
+    
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
+    
+  }
+
+  public void displayAllAdmin() throws IOException, ParseException, java.text.ParseException{
+    ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
+    if(adminList !=null){
+      for(Admin admin:adminList){
+        String ID= admin.getNationalId();
+        String Name= admin.getFullname();
+        String Email= admin.getEmail();
+        String MobileNumber= admin.getPhoneNo();
+        String Password= admin.getPassword();
+        
+        System.out.println("ID: "+ID+"\nName: "
+            +Name+"\nEmail: "+Email+"\nMobile Number: "
+            +MobileNumber+"\nPassword: "+Password+"\n");
+      }
+    } else{
+      System.out.println("There is not any admin");
+    }
+    Scanner io= new Scanner(System.in);
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
+  
+  }
+
+  public void displayOneAdmin() throws IOException, ParseException, java.text.ParseException{
+    ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
+    Scanner io=new Scanner(System.in);
+    if (adminList!=null){
+      System.out.println("Enter id of the admin you want to see: ");
+      String id=io.nextLine();
+      
+      for(Admin admin:adminList){
+        if(admin.getNationalId().equals(id)){
+            String ID= admin.getNationalId();
+            String Name= admin.getFullname();
+            String Email= admin.getEmail();
+            String MobileNumber= admin.getPhoneNo();
+            String Password= admin.getPassword();
+            
+            System.out.println("ID: "+ID+"\nName: "
+            +Name+"\nEmail: "+Email+"\nMobile Number: "
+            +MobileNumber+"\nPassword: "+Password);
+        }else{
+          System.out.println("This admin doesn't exist");
+        }
+      }
+    }else{
+      System.err.println("There is not any admin\n");
+    }
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
+  }
+
+  public void removeAdmin() throws IOException, ParseException, java.text.ParseException{
+    ArrayList<Admin> adminList= AdminJson.readAllAdminFromJson();
+    Scanner io=new Scanner(System.in);
+    if(adminList!=null){
+      System.out.println("Enter the national-ID that you want to remove: ");
+      String id=io.nextLine();
+      if(adminList.removeIf(x -> x.getNationalId().equals(id))){
+        AdminJson.sendAdminListToJson(adminList);
+        System.out.println("admin Successfully Deleted");
+      } else{
+        System.out.println("We couldn't find an admin whith such id");
+      }
+
+    }else{
+      System.out.println("There is not any admin");
+    }
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
+  }
+  
+
+  public void editAdmin() throws IOException, ParseException, java.text.ParseException{
+    ArrayList<Admin> adminList = AdminJson.readAllAdminFromJson();
+    Scanner io=new Scanner(System.in);
+    if(adminList!=null){
+      System.out.println("Enter the national-ID that you want to edit: ");
+      String id=io.nextLine();
+      boolean found=false;
+      for (Admin admin : adminList) {
+          if( admin.getNationalId().equals(id)){
+            found= true;
+          }
+      }
+      if(found){
+        System.out.println("What do you want to change ?\n1-Email\n2-Mobile Number\n3-password");
+        int option=io.nextInt();
+        switch(option){
+          case 1:
+          System.out.println("Enter the new Email:");
+          String newEmail=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setEmail(newEmail));
+          break;
+
+          case 2:
+          System.out.println("Enter the new mobile number:");
+          String newMobileNumber=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPhoneNo(newMobileNumber));
+          break;
+
+          case 3:
+          System.out.println("Enter the new password :");
+          String newPassword=io.next();
+          adminList.stream().filter(x->x.getNationalId().equals(id)).forEach(x->x.setPassword(newPassword));
+          break;
+        }
+        AdminJson.sendAdminListToJson(adminList);
+      }else{
+        System.out.println("There is not an admin with such id");
+      }
+
+    } else{
+      System.out.println("There is not any admin");
+    }
+    System.out.println("Press 0 to exit or any key to continue");
+    String cont= io.nextLine();
+    if(cont.equals("0")){
+      System.exit(0);
+    }else{
+      adminTerminal();
+    }
+    
+  }
+  
+  public void adminTerminal() throws IOException, ParseException, java.text.ParseException{
+    Scanner io=new Scanner(System.in);
+    System.out.println("Please Choose a number:"+
+    "\n1. Display admins."+
+    "\n2. Display one admin"+
+    "\n3. Add admin."+
+    "\n4. Edit admin."+
+    "\n5. delete admin."+
+    "\n6. go back"
+    );
+    
+    String inputKey="0";
+    while (inputKey!="6") {
+      inputKey=io.nextLine();
+      switch (inputKey) {
+        case "1":
+        this.displayAllAdmin();
+        break;
+
+        case "2":
+        this.displayOneAdmin();
+        break;
+
+        case "3":
+        this.addAdmin();
+  
+        break;
+        case "4":
+        this.editAdmin();
+  
+        break;
+        case "5":
+        this.removeAdmin();
+        break;
+
+        case "6":
+        MainTerminal.adminMainTerminal();
+        break;
+      
+        case "0":
+        System.exit(0);
+        break;
+      }
+    }
+  }
+
+}
