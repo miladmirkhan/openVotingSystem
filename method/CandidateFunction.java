@@ -65,7 +65,7 @@ public class CandidateFunction {
                 break;
             }
             var account = candidateList.stream()
-                    .filter(candidate -> candidate.getNationalID()==nationalId).findFirst();
+                    .filter(candidate -> candidate.getNationalID().equals(nationalId)).findFirst();
             if (account.isEmpty()){
                 System.out.println("This email not exist");
             }else{

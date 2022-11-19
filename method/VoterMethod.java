@@ -263,7 +263,11 @@ public void voterApplication(ArrayList<Voter> voterlist){
             addVoter(voterlist);
                 break;
             case 2:
-            signInVoter(voterlist);
+            if(signInVoter(voterlist)){
+                System.out.println("You are signed in successfully!");
+            }else{
+                System.out.println("You are not signed in!");
+            }
                 break;
             case 3:
                      System.out.println("1- Delete voter by national id");
