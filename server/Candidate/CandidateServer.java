@@ -1,18 +1,22 @@
 import java.io.*;
 import java.net.*;
-public class CandidateServer {
-    public static void main(String[] args)throws IOException,ClassNotFoundException {
-        Socket socket;
-        ServerSocket serverSocket=new ServerSocket(5000);
-        socket=serverSocket.accept();
-        if(socket.isConnected()){
-            System.out.println("Connected");
+public class Server {
+    public static void main(String[] args) throws IOException,UnknownHostException {
+        int port =5000;
+        ServerSocket serverSocket;
+        try{
+            serverSocket=new ServerSocket(port);
+            System.out.println("Server started on port: "+port);
+            ObjectInputStream in=new ObjectInputStream(serverSocket.accept().getInputStream());
+            String input=(String)in.readObject();
+            if(input.equals("0")) {
+                System.out.println("Server stopped");
+                serverSocket.close();
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        while(true){
-            ObjectInputStream inputStream=new ObjectInputStream(socket.getInputStream());
-            if(inputStream.readObject().equals("0"))
-                break;
-        }
-        serverSocket.close();
     }
 }
