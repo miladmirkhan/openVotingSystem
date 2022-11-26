@@ -1,4 +1,3 @@
-import method.AdminFunction;
 import views.MainTerminal;
 
 public class App {
