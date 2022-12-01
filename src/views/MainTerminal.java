@@ -64,7 +64,6 @@ public class MainTerminal {
                     if(adminList!=null){
                         boolean found=false;
                         for (Admin admin : adminList) {
-                            // System.out.println(admin.getNationalId());
                           if( admin.getNationalId().equals(id)&&admin.getPassword().equals(password)){
                           found= true;
                           System.out.println("Welcome: " + admin.getFullname());
@@ -171,17 +170,6 @@ public class MainTerminal {
 
     }
 
-    public static void countAllResult() throws SQLException {
-        String query="SELECT (SELECT name FROM candidates WHERE nationalId= firstVote) AS 'name', COUNT(firstVote) AS 'count' FROM voter GROUP BY firstVote;";
-        ResultSet rst=JDBC.display(query);
-        while (rst.next()){
-            String name=rst.getString("name");
-            int count=rst.getInt("count");
-            System.out.println(name+": "+count);
-        }
-    }
-
-
     public static void voterMainTerminal(String id) throws SQLException, IOException, ParseException, ClassNotFoundException {
         Scanner io=new Scanner(System.in);
         while (true){
@@ -207,38 +195,28 @@ public class MainTerminal {
                     CandidateFunction candidateFunction=new CandidateFunction();
                     ArrayList<Candidate> candidates= candidateFunction.allCandidate();
                     for(Candidate candidate:candidates){
-//                        CandidateView.displayCandidates(candidates);
                         System.out.println(candidate.getNationalID()+": "+ candidate.getName());
                     }
                   System.out.println("Enter your first vote");
                     int firstVote=io.nextInt();
                     for(Candidate candidate:candidates){
-//                        CandidateView.displayCandidates(candidates);
                         if(!Integer.toString(firstVote).equals(candidate.getNationalID())) System.out.println(candidate.getNationalID()+": "+ candidate.getName());
                     }
                     System.out.println("Enter your second vote");
                     int secondVote=io.nextInt();
                     while (secondVote==firstVote){
                         System.out.println("You can't vote the same person");
-//                        for(Candidate candidate:candidates){
-////                        CandidateView.displayCandidates(candidates);
-//                            if(!Integer.toString(secondVote).equals(candidate.getNationalID())) System.out.println(candidate.getNationalID()+": "+ candidate.getName());
-//                        }
+
                         System.out.println("Enter your second vote");
                         secondVote=io.nextInt();
                     }
                     System.out.println("Enter your third vote");
                     for(Candidate candidate:candidates){
-//                        CandidateView.displayCandidates(candidates);
                         if(!Integer.toString(secondVote).equals(candidate.getNationalID()) && !Integer.toString(firstVote).equals(candidate.getNationalID())) System.out.println(candidate.getNationalID()+": "+ candidate.getName());
                     }
                     int thirdvote= io.nextInt();
                     while (firstVote==thirdvote||secondVote==thirdvote){
                         System.out.println("You can't vote the same person");
-//                        for(Candidate candidate:candidates){
-////                        CandidateView.displayCandidates(candidates);
-//                            if(!Integer.toString(secondVote).equals(candidate.getNationalID()) || Integer.toString(firstVote).equals(candidate.getNationalID())) System.out.println(candidate.getNationalID()+": "+ candidate.getName());
-//                        }
                         System.out.println("Enter your third vote");
                         thirdvote=io.nextInt();
                     }
