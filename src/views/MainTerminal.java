@@ -118,7 +118,6 @@ public class MainTerminal {
                 loginTerminal();
                 break;
             case "5":
-                countAllResult();
                 countResult();
                 break;
             default:
