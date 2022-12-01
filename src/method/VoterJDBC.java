@@ -32,7 +32,8 @@ public class VoterJDBC {
    }
 
    public static void addVoterToJDBC(Voter voter) throws SQLException{
-    String sql ="INSERT INTO `voter` VALUES ('"+voter.getNationalID()+"', '"+voter.getFullName()+"', '"+voter.getEmail()+"', '"+voter.getPassword()+"', '"+voter.getMobileNumber()+"', '"+voter.getAge()+"', '"+voter.getAddress()+"', '"+voter.getZone()+"')";
+    // String sql ="INSERT INTO `voter` VALUES ('"+voter.getNationalID()+"', '"+voter.getFullName()+"', '"+voter.getEmail()+"', '"+voter.getPassword()+"', '"+voter.getMobileNumber()+"', '"+voter.getAge()+"', '"+voter.getAddress()+"', '"+voter.getZone()+"')";
+    String sql ="INSERT INTO `voter` VALUES ('"+voter.getNationalID()+"', '"+voter.getFullName()+"', '"+voter.getEmail()+"', '"+voter.getPassword()+"', '"+voter.getMobileNumber()+"', '"+voter.getAge()+"', '"+voter.getAddress()+"', '"+voter.getZone()+"', 'false','0','0','0')";
     JDBC.insert(sql);
 
    }
