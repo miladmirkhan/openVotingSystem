@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/openVotingSystem.iml" filepath="$PROJECT_DIR$/openVotingSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenVotingSystem.iml" filepath="$PROJECT_DIR$/OpenVotingSystem.iml" />
     </modules>
   </component>
 </project>

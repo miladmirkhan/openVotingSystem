@@ -1,102 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f36c4059-7fa9-4535-81b4-fb7429275806" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/openVotingSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/openVotingSystem.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/CandidateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CandidateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/VoterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/VoterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/method/AdminFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/method/AdminFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/method/CandidateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/method/CandidateFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/method/VoterMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/method/VoterMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/Candidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Vote.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/Vote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Voter.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/Voter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/records/AdminRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/records/AdminRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/records/VoterLoginRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/records/VoterLoginRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/records/VoterRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/records/VoterRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/CandidateView.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/CandidateView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/VoterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/VoterView.java" afterDir="false" />
-    </list>
+    <list default="true" id="07200a9c-c6ec-4f6d-bae2-0dba7a324955" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2GoohuLz00trONiFYHuNsHAGxwa" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IE8AOCD67L949ajwiABW4bfc50" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/SAN/Desktop/Coding/milad/OpenVotingSystem/src/sql",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SAN\Desktop\OpenVotingSystem\src" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="openVotingSystem" />
+    <configuration name="AdminClient" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.AdminClient" />
+      <module name="OpenVotingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="OpenVotingSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Client" />
+      <module name="OpenVotingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.ServerClass" />
+      <module name="OpenVotingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.AdminClient" />
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.ServerClass" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.ServerClass" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f36c4059-7fa9-4535-81b4-fb7429275806" name="Default Changelist" comment="" />
-      <created>1667064430126</created>
+      <changelist id="07200a9c-c6ec-4f6d-bae2-0dba7a324955" name="Changes" comment="" />
+      <created>1669735237492</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1667064430126</updated>
+      <updated>1669735237492</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="zhyar" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
