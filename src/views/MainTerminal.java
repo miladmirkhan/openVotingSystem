@@ -134,30 +134,40 @@ public class MainTerminal {
         while (rst.next()){
             String name=rst.getString("name");
             int count=rst.getInt("count");
-            System.out.println("from firstvote"+name+": "+count);
-            candidates.put(name,count);
+            if(name==null) continue; 
+                candidates.put(name,count);
         }
-        Iterator<Map.Entry<String,Integer>> iterator=candidates.entrySet().iterator();
+        
         query="SELECT (SELECT name FROM candidates WHERE nationalId= secondVote) AS 'name', COUNT(secondVote)*2 AS 'count' FROM voter GROUP BY secondVote;";
         rst=JDBC.display(query);
         while (rst.next()){
             String name=rst.getString("name");
             int count=rst.getInt("count");
-            System.out.println(name+": "+count);
+            if(name==null) continue; 
             candidates.computeIfPresent(name,(k,v)->v+count);
             candidates.computeIfAbsent(name,(k)->count);
         }
+    
         query="SELECT (SELECT name FROM candidates WHERE nationalId= thirdVote) AS 'name', COUNT(thirdVote) AS 'count' FROM voter GROUP BY thirdVote;";
         rst=JDBC.display(query);
         while (rst.next()){
             String name=rst.getString("name");
             int count=rst.getInt("count");
-            System.out.println(name+": "+count);
+            if(name==null) continue; 
             candidates.computeIfPresent(name,(k,v)->v+count);
             candidates.computeIfAbsent(name,(k)->count);
         }
+        
         for (Map.Entry<String,Integer> candidate: candidates.entrySet()){
-            System.out.println("rahen"+candidate.getKey()+": "+candidate.getValue());
+            System.out.println(candidate.getKey()+": "+candidate.getValue());
+        }
+
+        
+        int max = Collections.max(candidates.values());
+        for (Map.Entry<String,Integer> candidate: candidates.entrySet()){
+            if(candidate.getValue()==max){
+                System.out.println("The winner is: "+candidate.getKey()+" with "+candidate.getValue()+" votes");
+            }
         }
 
     }
